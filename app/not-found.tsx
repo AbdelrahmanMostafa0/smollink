@@ -4,7 +4,7 @@ import { Unplug, Home } from "lucide-react";
 
 export default function NotFound() {
     return (
-        <div className="flex min-h-dvh flex-col items-center justify-center bg-background p-4 text-center">
+        <div className="flex min-h-dvh flex-col items-center justify-center bg-background p-4 py-10 text-center">
             <div className="animate-bounce">
                 <Unplug className="h-24 w-24 text-muted-foreground" />
             </div>
