@@ -14,6 +14,7 @@ import {
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Skeleton } from "@/components/ui/skeleton";
 import { LogOut, User as UserIcon } from "lucide-react";
+import Image from "next/image";
 
 export default function Navbar() {
     const { user, loading, logout } = useAuth();
@@ -21,7 +22,10 @@ export default function Navbar() {
     return (
         <nav className="border-b bg-background fixed top-0 z-50 w-full">
             <div className="container mx-auto flex h-16 items-center justify-between px-4">
-                <Link href="/" className="text-xl font-bold">
+                <Link href="/" className="text-xl font-bold flex items-center gap-2">
+                    <Image src={
+                        "/images/logo.png"
+                    } alt="SmolLink" width={24} height={24} />
                     SmolLink
                 </Link>
 

@@ -1,7 +1,7 @@
 "use client";
 
 import Cookies from "js-cookie";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
@@ -9,7 +9,7 @@ import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 import { Loader2 } from "lucide-react";
 import api from "@/lib/api";
-import { useAuth } from "./AuthProvider";
+import { useAuth, } from "./AuthProvider";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -35,8 +35,12 @@ const formSchema = z.object({
 export default function LoginForm() {
     const router = useRouter();
     const [loading, setLoading] = useState(false);
-    const { login } = useAuth();
-
+    const { login, user } = useAuth();
+    useEffect(() => {
+        if (user) {
+            router.replace("/");
+        }
+    }, [user])
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues: {
