@@ -20,7 +20,7 @@ export default function GoogleAuthButton() {
 
             login(data.user, data.token);
             toast.success("Successfully logged in with Google!");
-            router.push("/dashboard"); // Or wherever you want to redirect
+            router.push("/"); // Or wherever you want to redirect
         } catch (error: any) {
             console.error("Google Login Error:", error);
             const message =
