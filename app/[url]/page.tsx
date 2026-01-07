@@ -8,7 +8,7 @@ const page = async ({ params }: { params: Promise<{ url: string }> }) => {
     let redirectUrl: string | null = null;
 
     try {
-        const res = await axios.get(`http://localhost:3000/api/url/${url}`)
+        const res = await axios.get(`${process.env.NEXT_PUBLIC_APP_URL}/api/url/${url}`)
         if (res.data?.url) {
             redirectUrl = res.data.url
         }
